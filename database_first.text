@@ -1,0 +1,67 @@
+id = PRIMARY_KEY(NOT_NULL, UNIQUE, AUTO_INCREMENT) INT;
+vin = NOT_NULL UNIQUE VARCHAR(20);   *C1)  
+plate = NOT_NULL VARCHAR(20);      *C2)
+plate_provenance = NOT_NULL VARCHAR(5);
+brand = NOT_NULL VARCHAR(50);
+model = NOT_NULL VARCHAR(100);
+
+price = NULL VARCHAR(7);     *C3)  
+is_used = NULL BOOLEAN;
+kilometers_driven = VARCHAR(7);   stesso discorso del prezzo
+first_reg_year = NULL YEAR;   anno di prima immatricolazione
+last_revision = NULL YEAR;
+displacement = NULL VARCHAR(15); la cilindrata
+has_it_4_drive_wheels = NULL BOOLEAN;  *C4)
+horsepower = NULL VARCHAR(4);
+power_supply_type = NULL CHAR(2);   *C5)
+max_speed = NULL CHAR(3);   *C6)
+gears = NULL CHAR(1);
+is_change_manual = NULL BOOLEAN;
+seats = NULL CHAR(1);
+car_door = NULL CHAR(1);
+car_body = NULL VARCHAR(30);
+width = NULL CHAR(4); *C7)
+height = NULL CHAR(4);
+length = NULL CHAR(4);
+weight = NULL VARCHAR(4);
+is_key_electric = NULL BOOLEAN;
+color = NULL VARCHAR(20);
+
+
+
+COMMENTI E SPIEGAZIONI SCELTE PRESE:
+*C1) Il numero di telaio nelle macchine moderne è sempre di 17 caratteri ed è unico anche fra diversi paesi,
+ ma nelle vecchie era 16 e non si sa mai che un giorno possano aumentare.
+********************************   ********************************   ********************************
+*C2)Il numero di è sempre unico se siamo nello stesso paese, ma fra paesi diversi potremmo ritrovare la stessa targa,
+inoltre ogni paese ha il proprio formato di targa, ciò implica che alcune siano più lunghe di altre
+(es: quelle giapponesi arrivano anche fino a 12),in ogni caso, in futuro con l'aumento 
+delle macchine prodotte aumenteranno anche i caratteri delle targhe, quindi metto VARCHAR(20) per stare sicuro.
+ ********************************   ********************************   ********************************
+
+ *C3)
+  ********************************   ********************************   ********************************
+*C3 Es: 100'000 considerando anche il carattere dell'apice sono 7
+********************************   ********************************   ********************************
+
+*C4) Se ha 4 ruote motrici deve essere true, altrimenti se è false significa che ne ha solo due.
+********************************   ********************************   ********************************
+
+*C5) Utilizzerei dei valori a stringa di due caratteri per descrivere l'alimentazione del motore, 
+el = elettrico, ds = diesel ecc.. cosi da risparmiare spazio di archiviazione in questo database.
+********************************   ********************************   ********************************
+
+*C6) La velocità è calcolata in km\h in questo database.
+********************************   ********************************   ********************************
+
+*C7) Sarà larga ad es: 1.74 quindi sono in tutto 4 caratteri, uguale per lunghezza ed altezza.
+********************************   ********************************   ********************************
+
+
+ALTRI DATI DA POTER AGGIUNGERE:
+
+COLORE
+VETRI OSCURATI
+CAPACITA' DI CARICO
+TIPO DI CERCHIONE
+OPTIONAL
